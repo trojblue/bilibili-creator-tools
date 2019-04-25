@@ -6,6 +6,9 @@ import codecs
 
 import matplotlib.pyplot as plt
 
+"""
+aid_list: List[int], 整数格式的av号
+"""
 FILENAME = "tmp_danmu.csv"
 MY_MID = 1769729  # 四眼井
 
@@ -59,7 +62,11 @@ def get_danmu_popularity(aid: int, show_img=True) -> None:
     # plt.xticks(x_axis)
     plt.bar(x, per_sec_dict.values())
 
-    file_name =  'Graph/' + '弹幕分布_av' + str(aid) + '_'  + title.replace('/', '&') + '.png'
+    dir = 'Graph/'
+    if not os.path.exists(dir):
+        os.makedirs(dir)
+    file_name = 'Graph/' + '弹幕分布_av' + str(aid) + '_' + title.replace('/', '&') + '.png'
+    # file_name = 'Graph/' + '弹幕分布_av' + str(aid) + '_' +'.png'
     plt.savefig(file_name)
     # plt.savefig('graph/graph.png')
     print("完成! 保存到", file_name)
@@ -69,12 +76,30 @@ def get_danmu_popularity(aid: int, show_img=True) -> None:
     # plt.close()
 
 
-def get_aid_list(filename, rank = None):
+def get_aid_list_from_json(filename, rank=None) -> List[int]:
+    """读取 room.jeon文件, 生成弹幕热点图"""
     aid_list = []
 
     data = json.load(codecs.open(filename, 'r', 'utf-8-sig'))
     for vids in data:
-        aid_list.append(vids['编号'])
+        aid_list.append(int(vids['编号']))
+
+    return aid_list
+
+
+def get_aid_list_from_clipboard() -> List[int]:
+    """读取每行一个aid的剪贴板, 输出成List[aid]
+    """
+    import pyperclip
+
+    clipboard_list = pyperclip.paste().split("\n")
+    aid_list = []
+
+    for line in clipboard_list:
+        try:
+            aid_list.append(int(line))
+        except:
+            pass
 
     return aid_list
 
@@ -87,6 +112,8 @@ if __name__ == '__main__':
 
     # get_danmu_popularity(45917698, False)
     # get_danmu_popularity(46909295, False)
-    a = get_aid_list("room.json")
-    for v in a:
-        get_danmu_popularity(v, False)
+
+    aid_list = get_aid_list_from_clipboard()
+    # print('len', len(aid_list), '\ntype', type(aid_list[0]), aid_list)
+    for aid in aid_list:
+        get_danmu_popularity(aid, True)
