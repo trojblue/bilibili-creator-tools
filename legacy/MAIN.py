@@ -1,10 +1,10 @@
-from danmu import *
-from biliUtil import *
-import numpy as np
-import json
 import codecs
+import json
 
 import matplotlib.pyplot as plt
+import numpy as np
+from biliUtil import *
+from danmu import *
 
 """
 aid_list: List[int], 整数格式的av号
@@ -65,8 +65,10 @@ def get_danmu_popularity(aid: int, show_img=True) -> None:
     dir = 'Graph/'
     if not os.path.exists(dir):
         os.makedirs(dir)
-    file_name = 'Graph/' + '弹幕分布_av' + str(aid) + '_' + title.replace('/', '&') + '.png'
-    # file_name = 'Graph/' + '弹幕分布_av' + str(aid) + '_' +'.png'
+
+    clean_title = title.replace('/', '&').replace('.', '')
+    # file_name = 'Graph/' + '弹幕分布_av' + str(aid) + '_' + clean_title + '.png'
+    file_name = 'Graph/' + '弹幕分布_av' + str(aid) + '_' + '.png'
     plt.savefig(file_name)
     # plt.savefig('graph/graph.png')
     print("完成! 保存到", file_name)
@@ -105,7 +107,7 @@ def get_aid_list_from_clipboard() -> List[int]:
 
 
 if __name__ == '__main__':
-    # page = getVideoPageNum(MY_MID)
+    # page = get_page_num(MY_MID)
     # vid_list = getVideoList(MY_MID, page)
     # for v in vid_list:
     #     get_danmu_popularity(v, False)

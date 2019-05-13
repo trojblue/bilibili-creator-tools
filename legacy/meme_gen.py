@@ -1,6 +1,3 @@
-import random
-from typing import List, Dict
-
 """
 TO-Do:
 1. finish simple meme generator(txt based, no tag)      -- IN PROCESS
