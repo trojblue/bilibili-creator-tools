@@ -9,6 +9,7 @@
 import os
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 # 导入样式文件
 from QSSwhite import QSS
 
@@ -320,7 +321,8 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         MainWindow.setWindowTitle(_translate("MainWindow", "bili-creator-tools"))
         self.groupBox_11.setTitle(_translate("MainWindow", "操作流程"))
         self.label_11.setText(_translate("MainWindow",
-                                         "<html><head/><body><p>未完成: 这个部分用来对接未来的AE模板, 会生成自动化中间件 </p>这个程序用于生成自动化AE的中间文件; 未完成先留个位置</p></body></html>"))
+                                         "<html><head/><body><p>未完成: 这个部分用来对接未来的AE模板, 会生成自动化中间件 </p>"
+                                         "这个程序用于生成自动化AE的中间文件; 未完成先留个位置</p></body></html>"))
         self.groupBox_12.setTitle(_translate("MainWindow", "运行过程"))
         self.label_4.setText(_translate("MainWindow", "文件名："))
         self.radioButton_1.setText(_translate("MainWindow", "视频数据"))
@@ -349,13 +351,16 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         self.label_9.setText(_translate("MainWindow", "完成进度："))
         self.groupBox_32.setTitle(_translate("MainWindow", "操作流程"))
         self.label_3.setText(_translate("MainWindow",
-                                        "<html><head/><body><p>1、程序运行可以根据av号生成弹幕热度, 作为视频亮点的参考</p><p>2、在av号栏输入需要分析的av号, 用逗号分隔, 不用加上\"av\"</p><p>3、弹幕频率主要是用于时间较长的直播等, 对于3分钟内的短视频不适用</p><p>4、生成的图片会保存到软件目录下的/Graph文件夹</p></body></html>"))
+                                        "<html><head/><body><p>1、程序运行可以根据av号生成弹幕热度, 作为视频亮点的参考</p>"
+                                        "<p>2、在av号栏输入需要分析的av号, 用逗号分隔, 不用加上\"av\"</p>"
+                                        "<p>3、弹幕频率主要是用于时间较长的直播等, 对于3分钟内的短视频不适用</p>"
+                                        "<p>4、生成的图片会保存到软件目录下的/Graph文件夹</p></body></html>"))
         self.groupBox_7.setTitle(_translate("MainWindow", "选项"))
         self.checkBox_openFolder.setText(_translate("MainWindow", "完成后打开文件夹"))
         self.radioButton_theme1.setText(_translate("MainWindow", "样式1"))
         self.radioButton_theme2.setText(_translate("MainWindow", "样式2 (没做好)"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), _translate("MainWindow", "生成弹幕热度"))
-        self.groupBox.setTitle(_translate("MainWindow", "复制av号到剪贴板"))
+        self.groupBox.setTitle(_translate("MainWindow", "复制av号到剪贴板(没做好)"))
         self.label.setText(_translate("MainWindow", "把room.json放到软件目录下,\n"
                                                     "或者直接复制excel带av号的那一列\n"
                                                     "\n"

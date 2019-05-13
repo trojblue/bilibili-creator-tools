@@ -1,12 +1,14 @@
 # -*- coding: utf-8 -*-
 
-from PyQt5 import QtCore, QtWidgets
-from gui_v2 import Ui_MainWindow
 import sys
-import API as api
 import time
-from video import VideoPage, Uploader
+
 import pysnooper
+from PyQt5 import QtCore, QtWidgets
+
+import API as api
+from gui_v2 import Ui_MainWindow
+from video import VideoPage
 
 TEST_AIDS = [600781, 3357900, 17405257]
 
@@ -18,9 +20,9 @@ class MainUI(Ui_MainWindow):
         self.aboutmsg = "适用于B站up主的综合投稿分析工具, 目前只做了2个功能, 绝赞更新中\n\n" \
                         "这软件也顺带作为DDTV的周刊制作工具使用(自动化AE的功能)\n\n" \
                         "如果爬虫失效程序会报错退出，要是程序无法继续使用的话请联系我!!\n\n" \
-                        "<Python做桌面程序简直太痛苦了>\n" \
+                        "https://github.com/Trojblue/bilibili-creator-tools\n" \
                         "bilibili-creator-tools v0.1\n"
-        self.authormsg = "作者：四眼井\n\nB站: https://space.bilibili.com/1769729\n\n如果对本款小工具有疑问或者发现Bug，" \
+        self.authormsg = "作者：四眼井\n\n如果对本款小工具有疑问或者发现Bug，" \
                          "请和我联系\n\nQQ：570879411\n"
 
         self.actionOpenfile.triggered.connect(self.startExplorer)  # 打开当前文件夹
@@ -193,53 +195,6 @@ class dsrThread(QtCore.QThread):
 
     def run(self):
         self.dsrtext_signal.emit(api.getmsg("这部分还没做完", "red"))
-        # start = time.time()
-        # T = datetime.datetime.now()
-        # self.status_signal.emit("当前状态：正在进行DSR提取操作...")
-        # try:
-        #     IDs = self.api.get_Infos(self.txtname)
-        # except:
-        #     self.dsrtext_signal.emit(self.api.getmsg("读取文件失败，请检查文件名称是否有误！", "red"))
-        # else:
-        #     nums = len(IDs)
-        #     self.dsrprogmax_signal.emit(nums)
-        #     i = 1
-        #     if self.product == "tmall":
-        #         outfile = "TMdsr_" + T.strftime("%Y%m%d%H%M") + "_" + str(nums) + ".csv"
-        #         self.dsrtext_signal.emit(self.api.getmsg("商品类型为【天猫商品】，有效ID总计{}个，开始提取DSR".format(nums), "#464749"))
-        #         with open(outfile, 'w') as f:
-        #             f.write('商品ID,评分,评论数\n')
-        #         for each in IDs:
-        #             try:
-        #                 self.api.get_TM(each, outfile)
-        #             except:
-        #                 msg_b = "总计{}个商品ID,第{}个商品：{}写入信息失败！".format(nums, i, each)
-        #                 self.dsrtext_signal.emit(self.api.getmsg(msg_b, "red"))
-        #             else:
-        #                 msg_c = "总计{}个商品ID,成功写入第{}个天猫商品：{}".format(nums, i, each)
-        #                 self.dsrtext_signal.emit(self.api.getmsg(msg_c, "#464749"))
-        #                 self.dsrprog_signal.emit(i)
-        #             i += 1
-        #     elif self.product == "jingdong":
-        #         outfile = "JDdsr_" + T.strftime("%Y%m%d%H%M") + "_" + str(nums) + ".csv"
-        #         self.dsrtext_signal.emit(self.api.getmsg("商品类型为【京东商品】，有效ID总计{}个，开始提取DSR".format(nums), "#464749"))
-        #         with open(outfile, 'w') as f:
-        #             f.write('SKUID,好评率,好评数,中评数,差评数\n')
-        #         for each in IDs:
-        #             try:
-        #                 self.api.get_JD(each, outfile)
-        #             except:
-        #                 msg_b = "总计{}个商品ID,第{}个商品：{}写入信息失败！".format(nums, i, each)
-        #                 self.dsrtext_signal.emit(self.api.getmsg(msg_b, "red"))
-        #            else:
-        #                 msg_c = "总计{}个商品ID,成功写入第{}个京东商品：{}".format(nums, i, each)
-        #                 self.dsrtext_signal.emit(self.api.getmsg(msg_c, "#464749"))
-        #                 self.dsrprog_signal.emit(i)
-        #             i += 1
-        #     end = time.time()
-        #     msg_d = "DSR提取完毕，耗时：%0.2f秒！\n数据保存在当前目录下表格  %s  中" % (float(end - start), outfile)
-        #     self.dsrtext_signal.emit(self.api.getmsg(msg_d, "green"))
-        # self.status_signal.emit("当前状态：DSR信息提取操作完毕！")
 
 
 class linkThread(QtCore.QThread):
@@ -251,11 +206,7 @@ class linkThread(QtCore.QThread):
     def __init__(self, raw_aid):
         super().__init__()
         self.raw_aid = raw_aid
-        # self.open_folder =  options[0]
-        # self.save_bullets = options[1]
-        # self.merge = options[2]
 
-        # print('raw_aid', raw_aid)
 
     @pysnooper.snoop()
     def run(self):

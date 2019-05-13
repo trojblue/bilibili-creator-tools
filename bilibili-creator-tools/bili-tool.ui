@@ -1,0 +1,943 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+    <class>MainWindow</class>
+    <widget class="QMainWindow" name="MainWindow">
+        <property name="geometry">
+            <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>640</width>
+                <height>540</height>
+            </rect>
+        </property>
+        <property name="minimumSize">
+            <size>
+                <width>640</width>
+                <height>540</height>
+            </size>
+        </property>
+        <property name="maximumSize">
+            <size>
+                <width>640</width>
+                <height>540</height>
+            </size>
+        </property>
+        <property name="font">
+            <font>
+                <family>Microsoft YaHei UI</family>
+            </font>
+        </property>
+        <property name="windowTitle">
+            <string>bili-creator-tools</string>
+        </property>
+        <widget class="QWidget" name="centralwidget">
+            <widget class="QTabWidget" name="tabWidget">
+                <property name="geometry">
+                    <rect>
+                        <x>9</x>
+                        <y>9</y>
+                        <width>621</width>
+                        <height>491</height>
+                    </rect>
+                </property>
+                <property name="font">
+                    <font>
+                        <family>Microsoft YaHei UI</family>
+                    </font>
+                </property>
+                <property name="cursor">
+                    <cursorShape>ArrowCursor</cursorShape>
+                </property>
+                <property name="currentIndex">
+                    <number>0</number>
+                </property>
+                <widget class="QWidget" name="tab_1">
+                    <attribute name="title">
+                        <string>自动化AE</string>
+                    </attribute>
+                    <widget class="QGroupBox" name="groupBox_11">
+                        <property name="geometry">
+                            <rect>
+                                <x>30</x>
+                                <y>10</y>
+                                <width>535</width>
+                                <height>151</height>
+                            </rect>
+                        </property>
+                        <property name="font">
+                            <font>
+                                <family>Microsoft YaHei UI</family>
+                                <pointsize>10</pointsize>
+                            </font>
+                        </property>
+                        <property name="title">
+                            <string>操作流程</string>
+                        </property>
+                        <widget class="QLabel" name="label_11">
+                            <property name="geometry">
+                                <rect>
+                                    <x>40</x>
+                                    <y>10</y>
+                                    <width>491</width>
+                                    <height>123</height>
+                                </rect>
+                            </property>
+                            <property name="font">
+                                <font>
+                                    <family>Microsoft YaHei UI</family>
+                                    <pointsize>12</pointsize>
+                                </font>
+                            </property>
+                            <property name="text">
+                                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;未完成: 这个部分是用来对接未来的AE自动化的, 会自动填上视频数据
+                                    &lt;/p&gt;这个程序用于生成自动化AE的中间文件; 未完成先留个位置&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                                </string>
+                            </property>
+                        </widget>
+                    </widget>
+                    <widget class="QGroupBox" name="groupBox_12">
+                        <property name="geometry">
+                            <rect>
+                                <x>30</x>
+                                <y>180</y>
+                                <width>535</width>
+                                <height>251</height>
+                            </rect>
+                        </property>
+                        <property name="font">
+                            <font>
+                                <family>Microsoft YaHei UI</family>
+                                <pointsize>10</pointsize>
+                            </font>
+                        </property>
+                        <property name="title">
+                            <string>运行过程</string>
+                        </property>
+                        <widget class="QLabel" name="label_4">
+                            <property name="geometry">
+                                <rect>
+                                    <x>40</x>
+                                    <y>30</y>
+                                    <width>60</width>
+                                    <height>24</height>
+                                </rect>
+                            </property>
+                            <property name="text">
+                                <string>文件名：</string>
+                            </property>
+                        </widget>
+                        <widget class="QLineEdit" name="lineEdit_1">
+                            <property name="geometry">
+                                <rect>
+                                    <x>102</x>
+                                    <y>30</y>
+                                    <width>156</width>
+                                    <height>24</height>
+                                </rect>
+                            </property>
+                        </widget>
+                        <widget class="QRadioButton" name="radioButton_1">
+                            <property name="geometry">
+                                <rect>
+                                    <x>270</x>
+                                    <y>26</y>
+                                    <width>110</width>
+                                    <height>32</height>
+                                </rect>
+                            </property>
+                            <property name="styleSheet">
+                                <string notr="true"/>
+                            </property>
+                            <property name="text">
+                                <string>视频数据</string>
+                            </property>
+                            <property name="icon">
+                                <iconset>
+                                    <normaloff>Icon/e52d9567c015cdb440344305380739e7.png</normaloff>
+                                    Icon/e52d9567c015cdb440344305380739e7.png
+                                </iconset>
+                            </property>
+                            <property name="iconSize">
+                                <size>
+                                    <width>30</width>
+                                    <height>30</height>
+                                </size>
+                            </property>
+                        </widget>
+                        <widget class="QRadioButton" name="radioButton_2">
+                            <property name="geometry">
+                                <rect>
+                                    <x>398</x>
+                                    <y>26</y>
+                                    <width>111</width>
+                                    <height>32</height>
+                                </rect>
+                            </property>
+                            <property name="text">
+                                <string>排行榜</string>
+                            </property>
+                            <property name="icon">
+                                <iconset>
+                                    <normaloff>Icon/b721a1c9956b6e836cbdb6c57691ef09.png</normaloff>
+                                    Icon/b721a1c9956b6e836cbdb6c57691ef09.png
+                                </iconset>
+                            </property>
+                            <property name="iconSize">
+                                <size>
+                                    <width>22</width>
+                                    <height>22</height>
+                                </size>
+                            </property>
+                        </widget>
+                        <widget class="QPushButton" name="pushButton_1">
+                            <property name="geometry">
+                                <rect>
+                                    <x>40</x>
+                                    <y>70</y>
+                                    <width>91</width>
+                                    <height>30</height>
+                                </rect>
+                            </property>
+                            <property name="text">
+                                <string>开始</string>
+                            </property>
+                            <property name="icon">
+                                <iconset>
+                                    <normaloff>Icon/ooopic_1494068712.ico</normaloff>Icon/ooopic_1494068712.ico
+                                </iconset>
+                            </property>
+                            <property name="iconSize">
+                                <size>
+                                    <width>20</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </widget>
+                        <widget class="QLabel" name="label_5">
+                            <property name="geometry">
+                                <rect>
+                                    <x>160</x>
+                                    <y>72</y>
+                                    <width>71</width>
+                                    <height>24</height>
+                                </rect>
+                            </property>
+                            <property name="text">
+                                <string>完成进度：</string>
+                            </property>
+                        </widget>
+                        <widget class="QProgressBar" name="progressBar_1">
+                            <property name="geometry">
+                                <rect>
+                                    <x>240</x>
+                                    <y>75</y>
+                                    <width>250</width>
+                                    <height>20</height>
+                                </rect>
+                            </property>
+                            <property name="value">
+                                <number>0</number>
+                            </property>
+                        </widget>
+                        <widget class="QTextEdit" name="textEdit_1">
+                            <property name="geometry">
+                                <rect>
+                                    <x>40</x>
+                                    <y>120</y>
+                                    <width>455</width>
+                                    <height>121</height>
+                                </rect>
+                            </property>
+                        </widget>
+                    </widget>
+                </widget>
+                <widget class="QWidget" name="tab_2">
+                    <attribute name="title">
+                        <string>1080p视频下载</string>
+                    </attribute>
+                    <widget class="QGroupBox" name="groupBox_21">
+                        <property name="geometry">
+                            <rect>
+                                <x>10</x>
+                                <y>160</y>
+                                <width>600</width>
+                                <height>291</height>
+                            </rect>
+                        </property>
+                        <property name="font">
+                            <font>
+                                <family>Microsoft YaHei UI</family>
+                                <pointsize>10</pointsize>
+                            </font>
+                        </property>
+                        <property name="title">
+                            <string>运行过程</string>
+                        </property>
+                        <widget class="QLineEdit" name="lineEdit_2">
+                            <property name="geometry">
+                                <rect>
+                                    <x>60</x>
+                                    <y>20</y>
+                                    <width>531</width>
+                                    <height>24</height>
+                                </rect>
+                            </property>
+                        </widget>
+                        <widget class="QLabel" name="label_6">
+                            <property name="geometry">
+                                <rect>
+                                    <x>20</x>
+                                    <y>20</y>
+                                    <width>41</width>
+                                    <height>24</height>
+                                </rect>
+                            </property>
+                            <property name="text">
+                                <string>av号：</string>
+                            </property>
+                        </widget>
+                        <widget class="QLabel" name="label_7">
+                            <property name="geometry">
+                                <rect>
+                                    <x>20</x>
+                                    <y>255</y>
+                                    <width>71</width>
+                                    <height>24</height>
+                                </rect>
+                            </property>
+                            <property name="text">
+                                <string>完成进度：</string>
+                            </property>
+                        </widget>
+                        <widget class="QPushButton" name="pushButton_2">
+                            <property name="geometry">
+                                <rect>
+                                    <x>500</x>
+                                    <y>250</y>
+                                    <width>91</width>
+                                    <height>30</height>
+                                </rect>
+                            </property>
+                            <property name="text">
+                                <string>开始</string>
+                            </property>
+                            <property name="icon">
+                                <iconset>
+                                    <normaloff>Icon/ooopic_1494068712.ico</normaloff>Icon/ooopic_1494068712.ico
+                                </iconset>
+                            </property>
+                            <property name="iconSize">
+                                <size>
+                                    <width>20</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </widget>
+                        <widget class="QProgressBar" name="progressBar_2">
+                            <property name="geometry">
+                                <rect>
+                                    <x>90</x>
+                                    <y>255</y>
+                                    <width>391</width>
+                                    <height>20</height>
+                                </rect>
+                            </property>
+                            <property name="value">
+                                <number>0</number>
+                            </property>
+                        </widget>
+                        <widget class="QTextEdit" name="textEdit_2">
+                            <property name="geometry">
+                                <rect>
+                                    <x>20</x>
+                                    <y>55</y>
+                                    <width>571</width>
+                                    <height>181</height>
+                                </rect>
+                            </property>
+                            <property name="readOnly">
+                                <bool>true</bool>
+                            </property>
+                            <property name="textInteractionFlags">
+                                <set>Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+                            </property>
+                        </widget>
+                    </widget>
+                    <widget class="QGroupBox" name="groupBox_22">
+                        <property name="geometry">
+                            <rect>
+                                <x>10</x>
+                                <y>10</y>
+                                <width>451</width>
+                                <height>140</height>
+                            </rect>
+                        </property>
+                        <property name="font">
+                            <font>
+                                <family>Microsoft YaHei UI</family>
+                                <pointsize>10</pointsize>
+                            </font>
+                        </property>
+                        <property name="title">
+                            <string>操作流程</string>
+                        </property>
+                        <widget class="QLabel" name="label_2">
+                            <property name="geometry">
+                                <rect>
+                                    <x>20</x>
+                                    <y>18</y>
+                                    <width>441</width>
+                                    <height>123</height>
+                                </rect>
+                            </property>
+                            <property name="font">
+                                <font>
+                                    <family>Microsoft YaHei UI</family>
+                                    <pointsize>10</pointsize>
+                                </font>
+                            </property>
+                            <property name="text">
+                                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;1、程序运行可以下载b站视频, 最大到1080p,
+                                    输入多个av号可以批量下载 &lt;/p&gt;&lt;p&gt;2、输入需要下载的视频的av号, 不用加上&quot;av&quot;, 用逗号分开&lt;/p&gt;&lt;p&gt;3、比如说可以在av号栏输入:
+                                    18560936, 15141603, 569615&lt;/p&gt;&lt;p&gt;4、按下开始按钮，视频会保存到软件目录下的/Video文件夹&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                                </string>
+                            </property>
+                        </widget>
+                    </widget>
+                    <widget class="QGroupBox" name="groupBox_8">
+                        <property name="geometry">
+                            <rect>
+                                <x>470</x>
+                                <y>10</y>
+                                <width>140</width>
+                                <height>140</height>
+                            </rect>
+                        </property>
+                        <property name="title">
+                            <string>选项</string>
+                        </property>
+                        <widget class="QCheckBox" name="checkBox_2">
+                            <property name="geometry">
+                                <rect>
+                                    <x>15</x>
+                                    <y>25</y>
+                                    <width>120</width>
+                                    <height>35</height>
+                                </rect>
+                            </property>
+                            <property name="text">
+                                <string>完成后打开文件夹</string>
+                            </property>
+                            <property name="checked">
+                                <bool>true</bool>
+                            </property>
+                        </widget>
+                        <widget class="QCheckBox" name="checkBox_5">
+                            <property name="geometry">
+                                <rect>
+                                    <x>15</x>
+                                    <y>60</y>
+                                    <width>120</width>
+                                    <height>35</height>
+                                </rect>
+                            </property>
+                            <property name="text">
+                                <string>下载弹幕(限b站)</string>
+                            </property>
+                        </widget>
+                        <widget class="QCheckBox" name="checkBox_6">
+                            <property name="geometry">
+                                <rect>
+                                    <x>15</x>
+                                    <y>95</y>
+                                    <width>120</width>
+                                    <height>35</height>
+                                </rect>
+                            </property>
+                            <property name="text">
+                                <string>合并分段(限b站)</string>
+                            </property>
+                        </widget>
+                    </widget>
+                </widget>
+                <widget class="QWidget" name="tab_3">
+                    <attribute name="title">
+                        <string>生成弹幕热度</string>
+                    </attribute>
+                    <widget class="QGroupBox" name="groupBox_31">
+                        <property name="geometry">
+                            <rect>
+                                <x>10</x>
+                                <y>160</y>
+                                <width>600</width>
+                                <height>291</height>
+                            </rect>
+                        </property>
+                        <property name="font">
+                            <font>
+                                <family>Microsoft YaHei UI</family>
+                                <pointsize>10</pointsize>
+                            </font>
+                        </property>
+                        <property name="title">
+                            <string>运行过程</string>
+                        </property>
+                        <widget class="QProgressBar" name="progressBar_3">
+                            <property name="geometry">
+                                <rect>
+                                    <x>90</x>
+                                    <y>255</y>
+                                    <width>391</width>
+                                    <height>20</height>
+                                </rect>
+                            </property>
+                            <property name="value">
+                                <number>0</number>
+                            </property>
+                        </widget>
+                        <widget class="QPushButton" name="pushButton_3">
+                            <property name="geometry">
+                                <rect>
+                                    <x>500</x>
+                                    <y>250</y>
+                                    <width>91</width>
+                                    <height>30</height>
+                                </rect>
+                            </property>
+                            <property name="text">
+                                <string>开始</string>
+                            </property>
+                            <property name="icon">
+                                <iconset>
+                                    <normaloff>Icon/ooopic_1494068712.ico</normaloff>Icon/ooopic_1494068712.ico
+                                </iconset>
+                            </property>
+                            <property name="iconSize">
+                                <size>
+                                    <width>20</width>
+                                    <height>20</height>
+                                </size>
+                            </property>
+                        </widget>
+                        <widget class="QLabel" name="label_8">
+                            <property name="geometry">
+                                <rect>
+                                    <x>20</x>
+                                    <y>20</y>
+                                    <width>41</width>
+                                    <height>24</height>
+                                </rect>
+                            </property>
+                            <property name="text">
+                                <string>av号：</string>
+                            </property>
+                        </widget>
+                        <widget class="QLineEdit" name="lineEdit_31">
+                            <property name="geometry">
+                                <rect>
+                                    <x>60</x>
+                                    <y>20</y>
+                                    <width>531</width>
+                                    <height>24</height>
+                                </rect>
+                            </property>
+                        </widget>
+                        <widget class="QTextEdit" name="textEdit_3">
+                            <property name="geometry">
+                                <rect>
+                                    <x>20</x>
+                                    <y>55</y>
+                                    <width>571</width>
+                                    <height>181</height>
+                                </rect>
+                            </property>
+                            <property name="textInteractionFlags">
+                                <set>Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+                            </property>
+                        </widget>
+                        <widget class="QLabel" name="label_9">
+                            <property name="geometry">
+                                <rect>
+                                    <x>20</x>
+                                    <y>255</y>
+                                    <width>71</width>
+                                    <height>24</height>
+                                </rect>
+                            </property>
+                            <property name="text">
+                                <string>完成进度：</string>
+                            </property>
+                        </widget>
+                    </widget>
+                    <widget class="QGroupBox" name="groupBox_32">
+                        <property name="geometry">
+                            <rect>
+                                <x>10</x>
+                                <y>10</y>
+                                <width>451</width>
+                                <height>140</height>
+                            </rect>
+                        </property>
+                        <property name="font">
+                            <font>
+                                <family>Microsoft YaHei UI</family>
+                                <pointsize>10</pointsize>
+                            </font>
+                        </property>
+                        <property name="title">
+                            <string>操作流程</string>
+                        </property>
+                        <widget class="QLabel" name="label_3">
+                            <property name="geometry">
+                                <rect>
+                                    <x>20</x>
+                                    <y>18</y>
+                                    <width>441</width>
+                                    <height>123</height>
+                                </rect>
+                            </property>
+                            <property name="font">
+                                <font>
+                                    <family>Microsoft YaHei UI</family>
+                                    <pointsize>10</pointsize>
+                                </font>
+                            </property>
+                            <property name="text">
+                                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;1、程序运行可以根据av号生成弹幕热度, 用于快速剪辑周刊视频&lt;/p&gt;&lt;p&gt;2、在av号栏输入需要分析的av号,
+                                    用逗号分隔, 不用加上&quot;av&quot;&lt;/p&gt;&lt;p&gt;3、比如说可以在av号栏输入: 600781, 3357900,
+                                    17405257&lt;/p&gt;&lt;p&gt;4、生成的图片会保存到软件目录下的/Graph文件夹&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;
+                                </string>
+                            </property>
+                        </widget>
+                    </widget>
+                    <widget class="QGroupBox" name="groupBox_7">
+                        <property name="geometry">
+                            <rect>
+                                <x>470</x>
+                                <y>10</y>
+                                <width>140</width>
+                                <height>140</height>
+                            </rect>
+                        </property>
+                        <property name="title">
+                            <string>选项</string>
+                        </property>
+                        <widget class="QCheckBox" name="checkBox_openFolder">
+                            <property name="geometry">
+                                <rect>
+                                    <x>15</x>
+                                    <y>25</y>
+                                    <width>120</width>
+                                    <height>35</height>
+                                </rect>
+                            </property>
+                            <property name="text">
+                                <string>完成后打开文件夹</string>
+                            </property>
+                            <property name="checked">
+                                <bool>true</bool>
+                            </property>
+                        </widget>
+                        <widget class="QRadioButton" name="radioButton_theme1">
+                            <property name="geometry">
+                                <rect>
+                                    <x>15</x>
+                                    <y>60</y>
+                                    <width>120</width>
+                                    <height>35</height>
+                                </rect>
+                            </property>
+                            <property name="text">
+                                <string>样式1</string>
+                            </property>
+                            <property name="checked">
+                                <bool>true</bool>
+                            </property>
+                        </widget>
+                        <widget class="QRadioButton" name="radioButton_theme2">
+                            <property name="geometry">
+                                <rect>
+                                    <x>15</x>
+                                    <y>95</y>
+                                    <width>120</width>
+                                    <height>35</height>
+                                </rect>
+                            </property>
+                            <property name="text">
+                                <string>样式2 (没做好)</string>
+                            </property>
+                        </widget>
+                    </widget>
+                </widget>
+                <widget class="QWidget" name="tab">
+                    <attribute name="title">
+                        <string>其他</string>
+                    </attribute>
+                    <widget class="QGroupBox" name="groupBox">
+                        <property name="geometry">
+                            <rect>
+                                <x>10</x>
+                                <y>10</y>
+                                <width>251</width>
+                                <height>441</height>
+                            </rect>
+                        </property>
+                        <property name="title">
+                            <string>复制av号到剪贴板</string>
+                        </property>
+                        <widget class="QLabel" name="label">
+                            <property name="geometry">
+                                <rect>
+                                    <x>30</x>
+                                    <y>20</y>
+                                    <width>201</width>
+                                    <height>131</height>
+                                </rect>
+                            </property>
+                            <property name="text">
+                                <string>把room.json放到软件目录下,
+                                    或者直接复制excel带av号的那一列
+
+                                    可以用在视频下载或者生成弹幕热度
+                                    或者用在其他奇奇怪怪的地方
+                                </string>
+                            </property>
+                            <property name="textFormat">
+                                <enum>Qt::AutoText</enum>
+                            </property>
+                        </widget>
+                        <widget class="QLineEdit" name="lineEdit_3">
+                            <property name="geometry">
+                                <rect>
+                                    <x>140</x>
+                                    <y>180</y>
+                                    <width>91</width>
+                                    <height>24</height>
+                                </rect>
+                            </property>
+                            <property name="text">
+                                <string>10</string>
+                            </property>
+                        </widget>
+                        <widget class="QLabel" name="label_10">
+                            <property name="geometry">
+                                <rect>
+                                    <x>10</x>
+                                    <y>180</y>
+                                    <width>121</width>
+                                    <height>24</height>
+                                </rect>
+                            </property>
+                            <property name="font">
+                                <font>
+                                    <pointsize>10</pointsize>
+                                </font>
+                            </property>
+                            <property name="text">
+                                <string>生成数量: (前___个)</string>
+                            </property>
+                        </widget>
+                        <widget class="QPushButton" name="pushButton_json">
+                            <property name="geometry">
+                                <rect>
+                                    <x>10</x>
+                                    <y>300</y>
+                                    <width>221</width>
+                                    <height>23</height>
+                                </rect>
+                            </property>
+                            <property name="text">
+                                <string>从room.json复制av号</string>
+                            </property>
+                        </widget>
+                        <widget class="QPushButton" name="pushButton_excel">
+                            <property name="geometry">
+                                <rect>
+                                    <x>10</x>
+                                    <y>340</y>
+                                    <width>221</width>
+                                    <height>23</height>
+                                </rect>
+                            </property>
+                            <property name="text">
+                                <string>从data.xlsx复制av号(没做好)</string>
+                            </property>
+                        </widget>
+                        <widget class="QPushButton" name="pushButton_openFolder2">
+                            <property name="geometry">
+                                <rect>
+                                    <x>10</x>
+                                    <y>240</y>
+                                    <width>221</width>
+                                    <height>23</height>
+                                </rect>
+                            </property>
+                            <property name="text">
+                                <string>打开文件夹</string>
+                            </property>
+                        </widget>
+                    </widget>
+                    <widget class="QGroupBox" name="groupBox_2">
+                        <property name="geometry">
+                            <rect>
+                                <x>280</x>
+                                <y>10</y>
+                                <width>325</width>
+                                <height>441</height>
+                            </rect>
+                        </property>
+                        <property name="title">
+                            <string>获取视频详细信息(没做好)</string>
+                        </property>
+                        <widget class="QLabel" name="label_16">
+                            <property name="geometry">
+                                <rect>
+                                    <x>30</x>
+                                    <y>20</y>
+                                    <width>271</width>
+                                    <height>101</height>
+                                </rect>
+                            </property>
+                            <property name="text">
+                                <string>可以用在视频下载或者生成弹幕热度&lt;br&gt;或者用在其他奇奇怪怪的地方</string>
+                            </property>
+                        </widget>
+                        <widget class="QLineEdit" name="lineEdit_infoAV">
+                            <property name="geometry">
+                                <rect>
+                                    <x>80</x>
+                                    <y>130</y>
+                                    <width>121</width>
+                                    <height>24</height>
+                                </rect>
+                            </property>
+                            <property name="text">
+                                <string>1919810</string>
+                            </property>
+                        </widget>
+                        <widget class="QLabel" name="label_17">
+                            <property name="geometry">
+                                <rect>
+                                    <x>10</x>
+                                    <y>130</y>
+                                    <width>121</width>
+                                    <height>24</height>
+                                </rect>
+                            </property>
+                            <property name="font">
+                                <font>
+                                    <pointsize>10</pointsize>
+                                </font>
+                            </property>
+                            <property name="text">
+                                <string>输入av号:</string>
+                            </property>
+                        </widget>
+                        <widget class="QPushButton" name="pushButton_info">
+                            <property name="geometry">
+                                <rect>
+                                    <x>220</x>
+                                    <y>130</y>
+                                    <width>95</width>
+                                    <height>23</height>
+                                </rect>
+                            </property>
+                            <property name="text">
+                                <string>获取信息</string>
+                            </property>
+                        </widget>
+                        <widget class="QTextEdit" name="textEdit_info">
+                            <property name="geometry">
+                                <rect>
+                                    <x>10</x>
+                                    <y>170</y>
+                                    <width>305</width>
+                                    <height>261</height>
+                                </rect>
+                            </property>
+                        </widget>
+                    </widget>
+                </widget>
+            </widget>
+        </widget>
+        <widget class="QMenuBar" name="menubar">
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>0</y>
+                    <width>640</width>
+                    <height>22</height>
+                </rect>
+            </property>
+            <widget class="QMenu" name="menu_F">
+                <property name="title">
+                    <string>文件(F)</string>
+                </property>
+                <addaction name="actionOpenfile"/>
+                <addaction name="separator"/>
+                <addaction name="actionQiut"/>
+            </widget>
+            <widget class="QMenu" name="menu_H">
+                <property name="title">
+                    <string>帮助(H)</string>
+                </property>
+                <addaction name="actionAbout"/>
+                <addaction name="separator"/>
+                <addaction name="actionAuthor"/>
+            </widget>
+            <addaction name="menu_F"/>
+            <addaction name="menu_H"/>
+        </widget>
+        <widget class="QStatusBar" name="statusbar"/>
+        <action name="actionOpenfile">
+            <property name="icon">
+                <iconset>
+                    <normaloff>Icon/2017522122222.ico</normaloff>Icon/2017522122222.ico
+                </iconset>
+            </property>
+            <property name="text">
+                <string>查看文件夹</string>
+            </property>
+            <property name="shortcut">
+                <string>Ctrl+O</string>
+            </property>
+        </action>
+        <action name="actionQiut">
+            <property name="icon">
+                <iconset>
+                    <normaloff>Icon/ooopic_1495455270.ico</normaloff>Icon/ooopic_1495455270.ico
+                </iconset>
+            </property>
+            <property name="text">
+                <string>退出</string>
+            </property>
+            <property name="shortcut">
+                <string>Ctrl+Q</string>
+            </property>
+        </action>
+        <action name="actionAbout">
+            <property name="icon">
+                <iconset>
+                    <normaloff>Icon/201752212221.ico</normaloff>Icon/201752212221.ico
+                </iconset>
+            </property>
+            <property name="text">
+                <string>关于</string>
+            </property>
+        </action>
+        <action name="actionAuthor">
+            <property name="icon">
+                <iconset>
+                    <normaloff>Icon/2017522122216.ico</normaloff>Icon/2017522122216.ico
+                </iconset>
+            </property>
+            <property name="text">
+                <string>作者</string>
+            </property>
+        </action>
+    </widget>
+    <resources>
+        <include location="tool.qrc"/>
+    </resources>
+    <connections/>
+</ui>
