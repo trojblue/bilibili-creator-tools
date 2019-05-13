@@ -60,10 +60,9 @@ git clone https://github.com/Trojblue/bilibili-creator-tools.git
 2. 在 CMD 里输入: `python gui_driver.py`
 
 GUI大概长这样
-https://github.com/Trojblue/bilibili-creator-tools/blob/master/docs/pycharm64_2019-05-13_06-06-19.png
-https://github.com/Trojblue/bilibili-creator-tools/blob/master/docs/pycharm64_2019-05-13_06-07-08.png
-生成的图片是这样:
-https://github.com/Trojblue/bilibili-creator-tools/blob/master/docs/%E5%BC%B9%E5%B9%95%E5%88%86%E5%B8%83_av49575119_%E3%80%90%E5%A4%8F%E8%89%B2%E7%A5%AD3D%E3%80%91%E8%BA%AB%E4%BD%93%E7%BB%88%E4%BA%8E%E8%83%BD%E5%8A%A8%E4%BA%86%EF%BC%81%EF%BC%81%EF%BC%81%E3%80%903D%E7%9B%B4%E6%92%AD%E3%80%91_p1.png
+![pycharm64_2019-05-13_06-06-19.png](https://github.com/Trojblue/bilibili-creator-tools/blob/master/docs/pycharm64_2019-05-13_06-06-19.png?raw=true)
+
+![pycharm64_2019-05-13_06-07-08.png](https://github.com/Trojblue/bilibili-creator-tools/blob/master/docs/pycharm64_2019-05-13_06-07-08.png?raw=true)
 
 
 ## FAQ
