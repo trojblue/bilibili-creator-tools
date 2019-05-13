@@ -1,0 +1,88 @@
+{
+    "aid": 46909295,
+    "videos": 2,
+    "tid": 25,
+    "tname": "MMD·3D",
+    "copyright": 1,
+    "pic": "http://i0.hdslb.com/bfs/archive/e8e12924397fdedb23879b29e9f530524237b32f.jpg",
+    "title": "十 般 发 情 V T B",
+    "pubdate": 1553156635,
+    "ctime": 1553156635,
+    "desc": "终于要到所有授权了, 3回啊3回(绝望), ..... 拜托了我什么都不会做的",
+    "state": 0,
+    "attribute": 2113730,
+    "duration": 307,
+    "rights": {
+        "bp": 0,
+        "elec": 0,
+        "download": 1,
+        "movie": 0,
+        "pay": 0,
+        "hd5": 0,
+        "no_reprint": 1,
+        "autoplay": 1,
+        "ugc_pay": 0,
+        "is_cooperation": 0,
+        "ugc_pay_preview": 0
+    },
+    "owner": {
+        "mid": 1769729,
+        "name": "四眼井_",
+        "face": "http: //i1.hdslb.com/bfs/face/06a1628380bf579f6b54a1b544a36d358f058b4a.jpg"
+    },
+    "stat": {
+        "aid": 46909295,
+        "view": 1672,
+        "danmaku": 7,
+        "reply": 23,
+        "favorite": 72,
+        "coin": 32,
+        "share": 18,
+        "now_rank": 0,
+        "his_rank": 0,
+        "like": 56,
+        "dislike": 0
+    },
+    "dynamic": "#Vtuber##虚拟Youtuber##虚拟youtuber# 终于要到所有授权了, 鬼知道我花了多少时间 (绝望)",
+    "cid": 82156283,
+    "dimension": {
+        "width": 1920,
+        "height": 1080,
+        "rotate": 0
+    },
+    "no_cache": false,
+    "pages": [
+        {
+            "cid": 82156283,
+            "page": 1,
+            "from": "vupload",
+            "part": "p1",
+            "duration": 152,
+            "vid": "",
+            "weblink": "",
+            "dimension": {
+                "width": 1920,
+                "height": 1080,
+                "rotate": 0
+            }
+        },
+        {
+            "cid": 82156328,
+            "page": 2,
+            "from": "vupload",
+            "part": "p2",
+            "duration": 155,
+            "vid": "",
+            "weblink": "",
+            "dimension": {
+                "width": 1920,
+                "height": 1080,
+                "rotate": 0
+            }
+        }
+    ],
+    "subtitle": {
+        "allow_submit": true,
+        "list": []
+    }
+}
