@@ -124,7 +124,6 @@ def get_input_aid(raw_aid: str) -> Tuple:
         print('不符合av号格式, 尝试使用url...')
         return (raw_aid, False)
 
-
 def open_explorer(path: str = ''):
     """
     用文件浏览器打开文件夹下的相对路径
@@ -135,7 +134,6 @@ def open_explorer(path: str = ''):
     abs_dir = os.path.split(abs_path)[0] + path
     subprocess.Popen('explorer {}'.format(abs_dir))
 
-
 def get_abs_dir():
     """输出绝对地址, 比如
     D:\Python\Personal\bilibili-creator-tools-dev\bilibili-creator-tools
@@ -143,7 +141,6 @@ def get_abs_dir():
     abs_path = os.path.abspath(__file__)
     abs_dir = os.path.split(abs_path)[0]
     return abs_dir
-
 
 # 下载1080p视频
 def download_video(target: VideoPage, mode: str = 'first', merge=True, save_bullet=False):
@@ -159,7 +156,6 @@ def download_video(target: VideoPage, mode: str = 'first', merge=True, save_bull
 
     start_url = "https://www.bilibili.com/video/av{}/".format(target.aid)
     a.download(start_url, dir + '\\Video')
-
 
 # 生成弹幕热度 from bullet.py
 def get_popularity(target: VideoPage, show_img=True, mode: str = 'first') -> None:

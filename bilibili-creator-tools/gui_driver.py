@@ -3,10 +3,9 @@
 import sys
 import time
 
+import API as api
 import pysnooper
 from PyQt5 import QtCore, QtWidgets
-
-import API as api
 from gui_v2 import Ui_MainWindow
 from video import VideoPage
 
@@ -20,9 +19,9 @@ class MainUI(Ui_MainWindow):
         self.aboutmsg = "适用于B站up主的综合投稿分析工具, 目前只做了2个功能, 绝赞更新中\n\n" \
                         "这软件也顺带作为DDTV的周刊制作工具使用(自动化AE的功能)\n\n" \
                         "如果爬虫失效程序会报错退出，要是程序无法继续使用的话请联系我!!\n\n" \
-                        "https://github.com/Trojblue/bilibili-creator-tools\n" \
-                        "bilibili-creator-tools v0.1\n"
-        self.authormsg = "作者：四眼井\n\n如果对本款小工具有疑问或者发现Bug，" \
+                        "<Python做桌面程序简直太痛苦了>\n" \
+                        "bilibili-creator-tools v0.1.1\n"
+        self.authormsg = "作者：四眼井\n\nB站: https://space.bilibili.com/1769729\n\n如果对本款小工具有疑问或者发现Bug，" \
                          "请和我联系\n\nQQ：570879411\n"
 
         self.actionOpenfile.triggered.connect(self.startExplorer)  # 打开当前文件夹
@@ -111,10 +110,8 @@ class MainUI(Ui_MainWindow):
     def startlink(self):
         print('start download mode')
         self.statusbar.setStyleSheet("color:blue")
-        print('1')
         self.pushButton_2.setDisabled(True)  # 线程启动锁定按钮
         self.textEdit_2.setText("")  # 插入一个空白，每次启动线程都可以清屏
-        print('2')
         raw_aids = self.lineEdit_2.text()
         print('rawaidsishere', raw_aids)
         # options = self.downloadOptions()
@@ -153,11 +150,11 @@ class MainUI(Ui_MainWindow):
         aids = api.get_input_aid(raw_aids)
         print('processed', aids)
         self.imgthread = imgThread(aids)
-        if aids[1] == False:
+        if aids[1] == False:  # 输入不合法
             self.pushButton_3.setDisabled(False)
-        else:
-            # imgfile = self.lineEdit_32.text()
+            self.statusshow('输入不合法, 请检查输入内容')
 
+        else:
             self.imgthread.status_signal.connect(self.statusshow)
             self.imgthread.imgtext_signal.connect(self.imgtextshow)
             self.imgthread.progmax_signal.connect(self.imgprog_max)
@@ -197,6 +194,7 @@ class dsrThread(QtCore.QThread):
         self.dsrtext_signal.emit(api.getmsg("这部分还没做完", "red"))
 
 
+
 class linkThread(QtCore.QThread):
     status_signal = QtCore.pyqtSignal(str)
     linktext_signal = QtCore.pyqtSignal(str)
@@ -206,12 +204,17 @@ class linkThread(QtCore.QThread):
     def __init__(self, raw_aid):
         super().__init__()
         self.raw_aid = raw_aid
+        # self.open_folder =  options[0]
+        # self.save_bullets = options[1]
+        # self.merge = options[2]
 
+        # print('raw_aid', raw_aid)
 
     @pysnooper.snoop()
     def run(self):
         """两种模式: 获取av号批量下载, 或者从连接下载"""
         aid_tuple = api.get_input_aid(self.raw_aid)
+        self.open_folder = True  # todo: 以后对应上gui
         if aid_tuple[1] == False:  # 不合法或者是URL
             self.run_url()
         else:  # 批量av号输入
@@ -246,7 +249,7 @@ class linkThread(QtCore.QThread):
 
         self.status_signal.emit("当前状态：视频下载完成！")
 
-    @pysnooper.snoop()
+    # @pysnooper.snoop()
     def run_aid(self):
         """aid运行模式"""
         start = time.time()
@@ -277,13 +280,19 @@ class linkThread(QtCore.QThread):
         out_time = '%.2f' % f
         msg_d = "批量下载成功，耗时{}秒;\n所有视频保存在/Video文件夹中".format(out_time)
         self.linktext_signal.emit(api.getmsg(msg_d, "green"))
+        if self.open_folder:
+            self.open_explorer()
+
+        self.status_signal.emit("当前状态：视频下载成功！")
+
+    def open_explorer(self):
+        """运行完成后打开文件夹
+        """
         try:
             api.open_explorer('\\Video')
         except:
             Exception()
-            self.linktext_signal.emit(api.getmsg('打开文件夹失败, 请自行查看图像', "red"))
-
-        self.status_signal.emit("当前状态：视频下载成功！")
+            self.imgtext_signal.emit(self.api.getmsg('打开文件夹失败, 请自行查看视频', "red"))
 
 
 class imgThread(QtCore.QThread):
@@ -297,6 +306,7 @@ class imgThread(QtCore.QThread):
         self.aid_list = aid_list[0]
         # self.imgfile = imgfile
         self.api = api.API()
+        self.open_folder = True
 
     # @pysnooper.snoop()
     def invalid_input(self):
@@ -311,13 +321,20 @@ class imgThread(QtCore.QThread):
         self.progmax_signal.emit(len_list)
         msg_b = '获取av号总计{}个，开始批量生成图片...'.format(len_list)
         self.imgtext_signal.emit(self.api.getmsg(msg_b, "#464749"))
+
         for i in range(len_list):
             self.progvalue_signal.emit(i)
             one_aid = VideoPage(self.aid_list[i])
-            self.imgtext_signal.emit(self.api.getmsg('生成弹幕分布...av{} {}'. \
-                                                     format(one_aid.aid, one_aid.title), "#464749"))
+            if not one_aid.is_valid:  # 无法获取输入av号的信息
+                a = one_aid.aid
+                self.imgtext_signal.emit(api.getmsg('无法获取av{}信息; 检查视频是否存在'.format(a), "red"))
+                self.open_folder = False
+                continue
+
+            self.imgtext_signal.emit(api.getmsg('生成弹幕分布...av{} {}'. \
+                                                format(one_aid.aid, one_aid.title), "#464749"))
             api.get_popularity(one_aid, False)
-            self.imgtext_signal.emit(self.api.getmsg('已完成: av{}'.format(one_aid.aid), "green"))
+            self.imgtext_signal.emit(api.getmsg('已完成: av{}'.format(one_aid.aid), "green"))
 
         self.progvalue_signal.emit(len_list)
 
@@ -325,13 +342,19 @@ class imgThread(QtCore.QThread):
         out_time = '%.2f' % f
         msg_d = "图片批量生成完毕，耗时{}秒;\n所有图片保存在/Graph文件夹中".format(out_time)
         self.imgtext_signal.emit(self.api.getmsg(msg_d, "green"))
+
+        if self.open_folder:  # 打开Graph文件夹
+            self.open_explorer()
+        self.status_signal.emit("当前状态：图像输出完成！")
+
+    def open_explorer(self):
+        """运行完成后打开文件夹
+        """
         try:
             api.open_explorer('\\Graph')
         except:
             Exception()
             self.imgtext_signal.emit(self.api.getmsg('打开文件夹失败, 请自行查看图像', "red"))
-
-        self.status_signal.emit("当前状态：图像输出完成！")
 
 
 def main():

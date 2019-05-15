@@ -63,7 +63,11 @@ GUI大概长这样
 ![pycharm64_2019-05-13_06-06-19.png](https://github.com/Trojblue/bilibili-creator-tools/blob/master/docs/pycharm64_2019-05-13_06-06-19.png?raw=true)
 
 ![pycharm64_2019-05-13_06-07-08.png](https://github.com/Trojblue/bilibili-creator-tools/blob/master/docs/pycharm64_2019-05-13_06-07-08.png?raw=true)
+测试用av号:
 
+```
+49644653,49575119,49139988,49253650,49272312,49757051,49589242,49563991,49283161
+```
 
 ## FAQ
 
@@ -84,6 +88,13 @@ GUI大概长这样
 - 几乎可以肯定还有很多其他bug, 欢迎联系我: `四眼井 QQ570879411`
 
 
+
+## to-do
+- 完善图形化界面
+- 提取评论生成词云
+- 完善弹幕密度功能
+- 增加"停止"按钮
+- 增加键盘快捷键
 
 ## 致谢
 

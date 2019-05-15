@@ -1,8 +1,10 @@
+from datetime import datetime
+from typing import *
+
 # import json
 # import subprocess
 # import os
-from typing import *
-
+import pytz
 import requests
 
 GET_VIDEO_LIST_URL = "https://space.bilibili.com/ajax/member/getSubmitVideos"
@@ -156,6 +158,9 @@ class VideoPage:
     cid_list: 分p视频的cid列表
     uploader: UP主名称
     a_title: 视频标题
+    pub_date: 投稿时间
+    avatar: up主头像
+    is_valid: 是否是可获取到信息的aid
 
     ===representation invariant===
     每个合法VideoPage至少有一个cid
@@ -166,15 +171,21 @@ class VideoPage:
         """aid: av号"""
         self.aid = aid
         self.aid_json = self.get_aid_json()
-        self.title = self.aid_json["title"]
-        self.uploader = self.aid_json["owner"]["name"]
-        self.mid = self.aid_json["owner"]["mid"]
-        self.cid_list = self.get_cid_list()
+        if not self.aid_json:
+            self.is_valid = False  # av号获取不到信息
+        else:
+            self.is_valid = True
+            self.title = self.aid_json["title"]
+            self.uploader = self.aid_json["owner"]["name"]
+            self.mid = self.aid_json["owner"]["mid"]
+            self.avatar = self.aid_json["owner"]["face"]
+            self.cid_list = self.get_cid_list()
+            self.pub_date = self.get_pub_date()
 
     def __repr__(self):
         """返回av号 - 标题 - up主 - 分p"""
-        return "<VideoPage> Object: av{}\n  title: {}\n  uploader: {}\n  c_int_list::{}\n". \
-            format(self.aid, self.title, self.uploader, [c.c_int for c in self.cid_list])
+        return "<VideoPage> Object: av{}\n  title: {}\n  uploader: {}\n  c_int_list::{}\n  pub_date:{} \n". \
+            format(self.aid, self.title, self.uploader, [c.c_int for c in self.cid_list], self.pub_date)
 
     def info(self) -> Dict:
         """把单个视频的信息返回到上级, 用于统计每天的变化
@@ -213,6 +224,20 @@ class VideoPage:
 
         # print(response['data'])
 
+    def get_pub_date(self, timezone='Asia/Shanghai'):
+        """获取视频发布时间
+        ctime: 从aid_json获取的unix时间戳
+        format: 输出格式 ,默认<年.月.日>
+        timezone: 时区 (默认中国)
+        """
+        ctime = self.aid_json['pubdate']
+        unix_timestamp = float(ctime)
+        out_timezone = pytz.timezone(timezone)  # 默认为北京时间
+        local_time = datetime.fromtimestamp(unix_timestamp, out_timezone)
+        str_time = local_time.strftime("%Y.%m.%d")
+        # 格式: "%Y.%m.%d %H:%M:%S.%f%z (%Z)"
+        return str_time
+
 
 class OnePage:
     """一个视频的一个分p
@@ -223,9 +248,6 @@ class OnePage:
     video_page: 从属VideoPage
     c_title: 分p标题
     """
-
-    # todo: 增加完整分辨率下载功能 https://github.com/Henryhaohao/
-    #  Bilibili_video_download/blob/master/downloader_v1.py
 
     def __init__(self, video_page, cid, page, title):
         self.video_page = video_page
@@ -262,25 +284,29 @@ class OnePage:
         pass
 
 
-TEST_AID = VideoPage(43006601)
+TEST_AID = VideoPage(43006601)  # 【梦幻共演】和书记一起跳舞的奥尔加
 TEST_CID = TEST_AID.cid_list[0]
 
 
 # @pysnooper.snoop()
 def test():
-    a = VideoPage(19516333)
-    print(a.cid_list[0])
-
-    # four_well = Uploader(1769729)
-    # print(four_well)
+    pass
 
 
 def main():
-    pass
+    raw_aid = input('输入查询的aid:')
+    try:
+        a = VideoPage(int(raw_aid))
+        print(a)
+        main()
+    except:
+        ValueError()
+        print('数据不合法')  # main()
 
 
 if __name__ == "__main__":
     test()
+    # main()
     # main()
     # OG_code()
     # print('请在main内打开!')
