@@ -2,6 +2,7 @@ from video import VideoPage, OnePage
 import xlrd
 from typing import Dict, List
 import pyperclip
+import urllib3
 """
 自动化AE程序
 todo:
@@ -170,6 +171,11 @@ class TopVideoPage(VideoPage):
         """
         pass
 
+    def get_results(self):
+        """输出小节内容
+        """
+        pass
+
 
 
     def get_avatars(self, path: str):
@@ -179,6 +185,12 @@ class TopVideoPage(VideoPage):
         :return:
         """
         return self.avatar
+
+    def download_avatars(self, path:str):
+        """下载头像到avatar文件夹
+        """
+        pass
+
 
 
 

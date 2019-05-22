@@ -11,7 +11,7 @@ import requests
 import you_get
 from bs4 import BeautifulSoup as bs
 from video import VideoPage
-
+import urllib3, shutil
 
 # class you_brew(you_get):
 #
@@ -168,6 +168,16 @@ def get_popularity(target: VideoPage, show_img=True, mode: str = 'first') -> Non
     """
     bullet.get_popularity(target, show_img, mode)
 
+def download_file(link:str, path:str, filename:str):
+    """下载单个文件到指定地址
+    """
+    url = link
+    c = urllib3.PoolManager()
+
+    with c.request('GET', url, preload_content=False) as resp, open(filename, 'wb') as out_file:
+        shutil.copyfileobj(resp, out_file)
+
+    resp.release_conn()
 
 def test():
     # target = VideoPage(52068429)
